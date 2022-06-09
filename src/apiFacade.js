@@ -15,6 +15,15 @@ function apiFacade() {
   const getToken = () => {
     return localStorage.getItem('jwtToken')
   }
+
+  const decodeToken = () => {
+    const token = getToken()
+    const decodeToken = token;
+    const decode = jwtDecode(decodeToken)
+    setToken(token);
+    return decode
+  }
+
   const loggedIn = () => {
     const loggedIn = getToken() != null;
     return loggedIn;
@@ -32,13 +41,54 @@ function apiFacade() {
   }
   const fetchUserInfo = () => {
     const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/userinfo", options).then(handleHttpErrors);
+    return fetch(URL + "/api/user/userinfo", options).then(handleHttpErrors);
+  }
+
+  const fetchAllOwners = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/user/allusers", options).then(handleHttpErrors);
+  }
+
+  const fetchAllBoatByHarbour = (id) => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + `/api/harbour/${id}/allboats`, options).then(handleHttpErrors);
+  }
+
+  const fetchAllOwnersByBoat = (id) => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + `/api/boat/${id}/allowners`, options).then(handleHttpErrors);
+  }
+
+  const createBoat = (data) => {
+    const options = makeOptions("POST", true, data); //True add's the token
+    return fetch(URL + `/api/boat/createboat`, options).then(handleHttpErrors);
+  }
+
+  const addBoatToHarbour = (harbourId, boatId) => {
+    const options = makeOptions("PUT", true); //True add's the token
+    return fetch(URL + `/api/harbour/${harbourId}/addboat/${boatId}`, options).then(handleHttpErrors);
+  }
+
+  const updateBoat = (id, data) => {
+    const options = makeOptions("PUT", true, data); //True add's the token
+    return fetch(URL + `/api/boat/${id}/updateboat`, options).then(handleHttpErrors);
+  }
+
+  const deleteBoat = (id) => {
+    const options = makeOptions("PUT", true); //True add's the token
+    return fetch(URL + `/api/boat/${id}/deleteboat`, options).then(handleHttpErrors);
+  }
+
+  const getHarbours = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + `/api/harbour/all`, options).then(handleHttpErrors);
+
   }
 
   const create = (username, password) => {
     const options = makeOptions("POST", true, { userName: username, userPass: password }); //True add's the token
     console.log(username + " " + password);
-    return fetch(URL + "/api/info/newuser", options)
+    return fetch(URL + "/api/user/newuser", options)
       .then(handleHttpErrors)
       .then(res => { setToken(res.token) })
   }
@@ -59,6 +109,7 @@ function apiFacade() {
     }
     return opts;
   }
+
   return {
     makeOptions,
     setToken,
@@ -68,6 +119,15 @@ function apiFacade() {
     logout,
     fetchUserInfo,
     create,
+    decodeToken,
+    fetchAllOwners,
+    fetchAllBoatByHarbour,
+    fetchAllOwnersByBoat,
+    createBoat,
+    updateBoat,
+    deleteBoat,
+    addBoatToHarbour,
+    getHarbours,
   }
 }
 const facade = apiFacade();

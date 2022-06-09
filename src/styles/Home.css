@@ -35,3 +35,218 @@
       font-size: 60px;
     }
   }
+
+  input,
+  button {
+      cursor: pointer;
+  }
+
+  button {
+    background-color: black;
+    color: rgb(197, 197, 197);
+    border-radius: 25px;
+    padding: 10px 20px;
+    height: 45px;
+    width: 100%;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    font-weight: bolder;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 300px;
+}
+
+button:hover {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0.19);
+    background-color: gray;
+    color: black;
+}
+
+.btn-green {
+    background-color: #1ff39e;
+    color: black;
+}
+
+.btn-green:hover {
+    color: #1ff39e;
+    background-color: black;
+}
+
+.btn-purple {
+    background-color: rgb(81, 41, 137);
+    color: rgb(215, 213, 218);
+}
+
+.btn-purple:hover {
+    background-color: black;
+    color: rgb(152, 78, 255);
+    /*  background-color: rgb(215, 213, 218); */
+    /*  color: rgb(29, 29, 29); */
+}
+
+.btn-lightpurple {
+    background-color: rgb(127, 110, 235);
+    color: rgb(215, 213, 218);
+}
+
+.btn-lightpurple:hover {
+    background-color: rgb(215, 213, 218);
+    color: rgb(29, 29, 29);
+}
+
+.fixed-btn button {
+    width: 60%;
+    max-width: 350px;
+}
+button {
+    width: 100%;
+}
+
+.header h1,
+.header-large h1 {
+    font-size: 50px;
+}
+
+.main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px 0 20px;
+}
+
+.settings-container .section .header {
+    text-align: center;
+    color: rgb(215, 213, 218);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.settings-container .section .header .back-arrow {
+    position: relative;
+    top: 0;
+    color: #901ff38a;
+    text-align: left;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.settings-container .section .header .back-arrow:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.settings-container .section p,
+label {
+    font-size: 12px;
+    color: #4443448a;
+    text-shadow: none;
+}
+
+.settings-container .section .header {
+    padding: 0px 10px 0px 10px;
+}
+
+.settings-container .section .header h1 {
+    padding-top: 10px;
+    font-size: 40px;
+    text-shadow: none;
+    color: #000000;
+
+}
+
+.settings-container .section .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.settings-container .section .content .character-row {
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+    /* border: 1px solid rgb(197, 197, 197); */
+}
+
+.settings-container .section .content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+.main-container {
+    height: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-rows: auto 60% auto;
+}
+
+.main-container div {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 60%;
+}
+
+.main-container .section div {
+    height: 100%;
+    width: 100%;
+}
+
+.main-container .section .header,
+.main-container .section .header-large {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px #00000088;
+}
+
+.main-container .section .header {
+    padding: 0px 10px 0px 10px;
+}
+
+.main-container .section .header * {
+    padding-top: 20px;
+}
+
+.main-container .section .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.main-container .section .content button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+
+.main-container .section .content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
