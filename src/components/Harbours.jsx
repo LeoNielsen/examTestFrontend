@@ -3,9 +3,10 @@ import { useState, useEffect } from 'react'
 import "../styles/Harbours.css"
 import facade from '../apiFacade';
 import DisplayCard from './DisplayCard';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Harbours = () => {
-
+    const navigate = useNavigate();
     const [harbours, setHarbours] = useState([]);
 
     useEffect(() => {
@@ -14,8 +15,8 @@ const Harbours = () => {
         })
     },[])
 
-    const onclick = () => {
-        window.location.href = "/harbour"
+    const onclick = (event) => {
+        navigate("/harbour", { state: event.currentTarget.id })
     }
 
 
@@ -24,7 +25,9 @@ const Harbours = () => {
         <div className='card-list'>
             {
             harbours.map((data) => {
-                return <DisplayCard id={data.id} item={data} onclick={onclick} />
+                return <div key={data.id}>
+                    <DisplayCard id={data.id} item={data} onclick={onclick} />
+                    </div>
             })
             }
         </div>

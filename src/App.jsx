@@ -6,6 +6,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Harbours from "./components/Harbours";
 import Harbour from "./components/Harbour";
+import AllOwners from "./components/AllOwners";
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
         <Route path="harbours" element={<Harbours />} />
         <Route path="harbour" element={<Harbour />} />
+        <Route path="allowners" element={<AllOwners />} />
         <Route path="*" element={<NoMatch/>} />
     </Routes>
   </BrowserRouter>

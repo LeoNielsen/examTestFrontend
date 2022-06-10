@@ -15,7 +15,7 @@ const Home = () => {
 
                 <div className='content' style={{ gridTemplateRows: "60% auto" }}>
                   <button className='btn-lightpurple' style={{ maxWidth: "200px" }} onClick={event => window.location.href = "/harbours"}>Harbours</button>
-                  <button className='btn-purple' style={{ maxWidth: "200px" }} onClick={event => window.location.href = "/gamepin"}>All Boat Owners</button>
+                  <button className='btn-purple' style={{ maxWidth: "200px" }} onClick={event => window.location.href = "/allowners"}>All Boat Owners</button>
                 </div>
             </div>
           </div>
