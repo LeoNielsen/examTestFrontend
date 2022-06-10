@@ -12,15 +12,17 @@ export default function App() {
 
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [admin, setAdmin] = useState(false);
+  
 
   return (
     <div>
       <BrowserRouter>
-      <Header loggedIn={loggedIn}/>
+      <Header loggedIn={loggedIn} isAdmin={admin}/>
     <Routes>
         <Route path="/" element={<Home/>}>
         </Route>
-        <Route path="login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+        <Route path="login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} setAdmin={setAdmin}/>} />
         <Route path="harbours" element={<Harbours />} />
         <Route path="harbour" element={<Harbour />} />
         <Route path="allowners" element={<AllOwners />} />

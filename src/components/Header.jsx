@@ -6,7 +6,7 @@ function logout() {
     apiFacade.logout();
 }
 
-const Header = ( { loggedIn } ) => {
+const Header = ( { loggedIn, isAdmin } ) => {
   return (
     <div>
       <header>
@@ -17,6 +17,10 @@ const Header = ( { loggedIn } ) => {
                 <NavLink className="nav-button" to="/" onClick={logout}>Logout</NavLink>
               : 
               <NavLink className="nav-button" to="login">Login</NavLink>
+          }
+          {
+            loggedIn && isAdmin &&
+            <NavLink className="nav-link" to="login">Create Boat</NavLink>
           }
 
 

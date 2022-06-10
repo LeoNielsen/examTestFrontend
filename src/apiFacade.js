@@ -1,4 +1,5 @@
 import URL from "./settings";
+import jwtDecode from "jwt-decode";
 
 function handleHttpErrors(res) {
   if (!res.ok) {

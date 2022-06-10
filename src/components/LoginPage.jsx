@@ -62,11 +62,17 @@ function CreateUser({create}) {
   )
 
 }
-function LoggedIn() {
+function LoggedIn({ setAdmin }) {
   const [dataFromServer, setDataFromServer] = useState("Loading...")
 
   useEffect(() => {
-    facade.fetchUserInfo().then(data => setDataFromServer(data));
+    facade.fetchUserInfo().then(data => {
+      setDataFromServer(data)
+      if(data.roles.includes("admin")){
+        setAdmin(true)
+      }
+    
+    });
   }, [])
 
   return (
@@ -78,12 +84,13 @@ function LoggedIn() {
 
 }
 
-function LoginPage( { loggedIn, setLoggedIn } ) {
+function LoginPage( { loggedIn, setLoggedIn, setAdmin } ) {
   const [creatingUser, setCreatingUser] = useState(false);
 
   const logout = () => {
     facade.logout()
     setLoggedIn(false)
+    setAdmin(false)
   }
   const login = (user, pass) => {
     facade.login(user, pass)
@@ -102,7 +109,7 @@ function LoginPage( { loggedIn, setLoggedIn } ) {
     <main>
       {!loggedIn ? (!creatingUser? (<LogIn login={login} creatingUser={createUser}/>) : (<CreateUser create={create}/>)) :
         (<div>
-          <LoggedIn />
+          <LoggedIn setAdmin={setAdmin} />
           <button onClick={logout}>Logout</button>
         </div>)}
     </main>
