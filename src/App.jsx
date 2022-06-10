@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Harbours from "./components/Harbours";
 import Harbour from "./components/Harbour";
 import AllOwners from "./components/AllOwners";
+import CreateBoat from "./components/CreateBoat";
 
 export default function App() {
 
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="harbours" element={<Harbours />} />
         <Route path="harbour" element={<Harbour />} />
         <Route path="allowners" element={<AllOwners />} />
+        <Route path="createboat" element={<CreateBoat admin={admin} />} />
         <Route path="*" element={<NoMatch/>} />
     </Routes>
   </BrowserRouter>

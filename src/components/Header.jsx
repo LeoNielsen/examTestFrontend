@@ -20,7 +20,7 @@ const Header = ( { loggedIn, isAdmin } ) => {
           }
           {
             loggedIn && isAdmin &&
-            <NavLink className="nav-link" to="login">Create Boat</NavLink>
+            <NavLink className="nav-link" to="createboat">Create Boat</NavLink>
           }
 
 
